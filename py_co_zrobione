@@ -36,6 +36,7 @@ class TreeNode:
         visit(self)
 
         fifo = self.children
+        
 
     def search(self , value = Any) -> Union['TreeNode',None]:
         if self.value == value:
@@ -54,13 +55,20 @@ class Tree:
         self.root = tree_node
 
     def add(self, value:Any, parent_name: Any) -> None:
-        pass
+        new = self.root.search(parent_name)
+
+        new.add(TreeNode(value))
 
     def for_each_level_order(self, visit: Callable[['TreeNode'],None]) -> None:
-        pass
+        self.root.for_each_level_order(visit)
 
     def for_each_deep_first(self, visit: Callable[['TreeNode'], None])-> None:
+        self.root.for_each_deep_first(visit)
+
+    def show(self):
         pass
+
+
 
 
 
