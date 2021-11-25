@@ -1,0 +1,70 @@
+from typing import Any ,List , Callable ,Union
+
+
+
+class TreeNode:
+    value: Any
+    children : List['TreeNode']
+
+    def __init__(self, value = Any):
+        self.value = value
+        self.children = []
+
+    def is_leaf(self) -> bool:
+        if (self.children == None):
+            return True
+        return False
+
+    def add(self, child:'TreeNode') -> None:
+        self.children.append(child)
+
+    def for_each_deep_first(self,visit: Callable[['TreeNode'],None])-> None:
+        if visit :
+            return
+
+        visit(self)
+
+    for child in self.children:
+        self.for_each_deep_first(visit(child))
+
+
+
+    def for_each_level_order(self, visit: Callble[['TreeNode'],None])-> None:
+        if visit:
+            return
+
+        visit(self)
+
+        fifo = self.children
+
+    def search(self , value = Any) -> Union['TreeNode',None]:
+        if self.value == value:
+            return self.value
+
+
+    def __str__(self):
+        return self.value
+
+
+
+class Tree:
+    root: TreeNode
+
+    def __init__(self, tree_node):
+        self.root = tree_node
+
+    def add(self, value:Any, parent_name: Any) -> None:
+        pass
+
+    def for_each_level_order(self, visit: Callable[['TreeNode'],None]) -> None:
+        pass
+
+    def for_each_deep_first(self, visit: Callable[['TreeNode'], None])-> None:
+        pass
+
+
+
+
+
+
+
